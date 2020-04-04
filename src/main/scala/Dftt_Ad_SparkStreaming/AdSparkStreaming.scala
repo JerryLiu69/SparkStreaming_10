@@ -1,6 +1,7 @@
 package Dftt_Ad_SparkStreaming
 
-import Dftt_Ad_SparkStreaming.utils.{ConfigUtil, Init}
+import Dftt_Ad_SparkStreaming.utils.LogUtil._
+import Dftt_Ad_SparkStreaming.utils._
 import org.apache.kafka.clients.consumer.ConsumerRecord
 import org.apache.kafka.common.serialization.StringDeserializer
 import org.apache.spark.streaming.dstream.InputDStream
@@ -34,7 +35,6 @@ object AdSparkStreaming {
       PreferConsistent, //均匀分发到 executor
       Subscribe[String, String](topics, kafkaParams)
     )
-
     (stream,ssc)
   }
 
@@ -45,7 +45,7 @@ object AdSparkStreaming {
     val appName = "AdSparkStreaming"
     val LOG: Logger = LoggerFactory.getLogger(appName)
     if(args.length != 1){
-      println("Usage:StreamingTest <propsName>")
+      printMessage("Usage:StreamingTest <propsName>")
       System.exit(1)
     }
     LOG.info("################ Streaming Start ##################")
