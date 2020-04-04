@@ -1,0 +1,25 @@
+kafka 各种shell操作：
+
+1.每个节点启动 kafka
+	nohup kafka-server-start.sh /home/hadoop/kafka_2.12-2.2.2/config/server.properties >/home/hadoop/logs/kafka_logs/out.log 2>&1 &
+2.创建 topic
+	kafka-topics.sh --create --zookeeper hadoop01:2181,hadoop02:2181,hadoop03:2181 --replication-factor 3 --partitions 10 --topic kafka_test
+3.查看已经创建的所有kafka topic
+	kafka-topics.sh --list --zookeeper hadoop01:2181,hadoop02:2181,hadoop03:2181
+4.查看某个指定的kafka topic详细信息
+	kafka-topics.sh --zookeeper hadoop01:2181,hadoop02:2181,hadoop03:2181 --describe --topic kafka_test
+5.开启生产者模拟生成数据
+	kafka-console-producer.sh --broker-list hadoop01:9092,hadoop02:9092,hadoop03:9092 --topic kafka_test
+6.开启消费者模拟消费数据
+	kafka-console-consumer.sh --bootstrap-server hadoop01:9092,hadoop02:9092,hadoop03:9092 --from-beginning --topic kafka_test
+7.查看某topic某分区的偏移量最大和最小值
+	kafka-run-class.sh kafka.tools.GetOffsetShell --topic kafka_test --time -1 --broker-list hadoop01:9092,hadoop02:9092,hadoop03:9092 --partitions 1
+8.增加topic分区数
+	kafka-topics.sh --alter --zookeeper hadoop01:2181,hadoop02:2181,hadoop03:2181 --topic kafka_test --partitions 20
+
+	kafka-topics.sh --alter --zookeeper hadoop01:2181,hadoop02:2181,hadoop03:2181 --topic kafka_test --replication-factor 2
+9.删除topic
+	kafka-topics.sh --delete --zookeeper hadoop01:2181,hadoop02:2181,hadoop03:2181 --topic kafka_test
+
+
+

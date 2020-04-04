@@ -1,0 +1,5 @@
+package Utils
+
+object HadoopUtil {
+
+}
