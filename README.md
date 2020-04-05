@@ -26,6 +26,6 @@
 
     flume  ->  kafka  ->  sparkStreaming  ->  mysql/hbase/hdfs/redis  ->   大屏
 
-**【cala实现广告实时处理流程。】**
+**【Scala实现广告实时处理流程。】**
 
 
