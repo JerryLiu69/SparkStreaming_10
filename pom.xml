@@ -247,6 +247,13 @@
       <artifactId>phoenix-core</artifactId>
       <version>4.8.0-HBase-1.2</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.phoenix/phoenix-spark -->
+    <dependency>
+      <groupId>org.apache.phoenix</groupId>
+      <artifactId>phoenix-spark</artifactId>
+      <version>4.8.0-HBase-1.2</version>
+    </dependency>
+
 
 
   </dependencies>
