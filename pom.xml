@@ -240,6 +240,14 @@
       <version>2.5.0</version>
     </dependency>
 
+    <!-- phoenix -->
+    <!-- https://mvnrepository.com/artifact/org.apache.phoenix/phoenix-core -->
+    <dependency>
+      <groupId>org.apache.phoenix</groupId>
+      <artifactId>phoenix-core</artifactId>
+      <version>4.8.0-HBase-1.2</version>
+    </dependency>
+
 
   </dependencies>
 
